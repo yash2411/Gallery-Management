@@ -1,13 +1,18 @@
+<div class="container mt-4 d-flex justify-content-center">
+<div class="shadow py-4 px-4">
+<h1>Add Image</h1>
 <%= form_with model: post do |f| %>
 	
 <%= render 'shared/errors', object: post %>
 
  
-  <div>
+<div>
 <%= f.label :image %>
 <%= f.file_field :image %><br>
 <%= f.hidden_field :image_cache %>
   </div>
  
-  <%= f.submit %>
+  <%= f.submit "Add", class: "btn btn-outline-success mt-3" %>
 <% end %>
+</div>
+</div>

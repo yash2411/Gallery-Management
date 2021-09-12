@@ -1,8 +1,12 @@
 class PostsController < ApplicationController
     before_action :set_post, only: [:show, :edit, :update, :destroy]
     def index
+       
+    end
+
+    def show_post
         @posts=current_user.posts.order('created_at DESC')
-        render 'index'
+        render 'gallery'
     end
 
     def new
@@ -12,7 +16,7 @@ class PostsController < ApplicationController
     def create
         @post=current_user.posts.build(post_params)
         if @post.save
-            redirect_to root_path
+            redirect_to posts_show_post_path
         else
             redirect_to 'new'
         end
@@ -37,7 +41,7 @@ class PostsController < ApplicationController
     def destroy
         if @post.destroy
             flash[:success]="Your image is deleted successfully"
-            redirect_to posts_path
+            redirect_to posts_show_post_path
         else
             flash[:danger]="Can't delete the image"
             redirect_to new_post_path

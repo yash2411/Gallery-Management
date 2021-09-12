@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get 'pages/about'
   get 'pages/contact'
 
+  get 'posts/show_post'
+
   devise_for :users
 
   resources :posts
