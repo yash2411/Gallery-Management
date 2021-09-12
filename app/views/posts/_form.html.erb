@@ -1,0 +1,13 @@
+<%= form_with model: post do |f| %>
+	
+<%= render 'shared/errors', object: post %>
+
+ 
+  <div>
+<%= f.label :image %>
+<%= f.file_field :image %><br>
+<%= f.hidden_field :image_cache %>
+  </div>
+ 
+  <%= f.submit %>
+<% end %>
