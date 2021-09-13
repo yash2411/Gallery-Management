@@ -63,3 +63,4 @@ gem 'devise', '~> 4.8'
 gem 'carrierwave', '~> 2.2', '>= 2.2.2'
 gem 'mini_magick', '~> 4.11'
 gem 'file_validators', '~> 3.0'
+
