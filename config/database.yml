@@ -22,4 +22,12 @@ test:
 
 production:
   <<: *default
-  database: db/production.postgresql
+  # database: db/production.sqlite3
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configurationguide
+  # https://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>  
+  database: gallery_production  
+  username: gallery 
+  password: <%= ENV['GALLERY_DATABASE_PASSWORD'] %>
