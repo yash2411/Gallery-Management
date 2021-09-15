@@ -3,7 +3,7 @@
 
 <div id="carouselExampleControls" class="carousel slide mt-2" data-bs-ride="carousel">
   <div class="carousel-inner">
-  <%= @posts.each_with_index do |post,i| %>
+  <% @posts.each_with_index do |post,i| %>
     <div class="carousel-item <%="active" if i==0 %>">
     <%= image_tag post.image.url, class: "d-block w-100 img" %>
     </div>
