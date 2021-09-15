@@ -1,3 +1,23 @@
 <h1>Welcome To Gallery Management</h1>
-<%= link_to 'Add post', new_post_path, class: "btn btn-outline-success mt-2" %>
+
+
+<div id="carouselExampleControls" class="carousel slide mt-2" data-bs-ride="carousel">
+  <div class="carousel-inner">
+  <%= @posts.each_with_index do |post,i| %>
+    <div class="carousel-item <%="active" if i==0 %>">
+    <%= image_tag post.image.url, class: "d-block w-100 img" %>
+    </div>
+    <% end %>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<%= link_to 'Add Image', new_post_path, class: "btn btn-outline-success mt-2" %>
 <hr>
