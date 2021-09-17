@@ -4,9 +4,11 @@
 <div id="carouselExampleControls" class="carousel slide mt-2" data-bs-ride="carousel">
   <div class="carousel-inner">
   <% @posts.each_with_index do |post,i| %>
-    <div class="carousel-item <%="active" if i==0 %>">
-    <%= image_tag post.image.url, class: "d-block w-100 img" %>
+  <% post.image.each_with_index do |img,j| %>
+    <div class="carousel-item <%="active" if j==0 %>">
+    <%= image_tag img.url, class: "d-block w-100 img" %>
     </div>
+    <% end %>
     <% end %>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">

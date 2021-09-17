@@ -50,7 +50,7 @@ class PostsController < ApplicationController
 
     private
     def post_params
-        params.require(:post).permit(:image, :remove_image, :image_cache)
+        params.require(:post).permit({image: []}, :remove_image, :image_cache)
     end
 
     def set_post

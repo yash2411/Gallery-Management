@@ -1,9 +1,12 @@
 
 
 <% if post.image? %>
-    <%= image_tag post.image.thumb.url %>
-<% end %>
- <br>
-<span><%= link_to 'Edit', edit_post_path(post), class: "btn btn-outline-primary mt-2" %></span>
-<span><%= link_to 'Delete', post_path(post), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-outline-danger mt-2" %></span>
+  <% post.image.each_with_index do |img,j| %>
+
+    <%= image_tag img.thumb.url %>
+     <br>
+    <span><%= link_to 'Edit', edit_post_path(post), class: "btn btn-outline-primary mt-2" %></span>
+    <span><%= link_to 'Delete', post_path(post), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-outline-danger mt-2" %></span>
 <hr>
+<% end %>
+<% end %>
