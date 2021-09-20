@@ -2,11 +2,12 @@
 
 <% if post.image? %>
   <% post.image.each_with_index do |img,j| %>
-
+    <% if img.present? %>
     <%= image_tag img.thumb.url %>
      <br>
   
-    <span><%= link_to 'Delete', post_path(post), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-outline-danger mt-2" %></span>
-<hr>
+    <span><%= link_to 'Delete', post_path(post, ind: j), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-outline-danger mt-2" %></span>
+    <hr>
+    <% end %>
 <% end %>
 <% end %>

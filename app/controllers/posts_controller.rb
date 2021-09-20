@@ -39,7 +39,11 @@ class PostsController < ApplicationController
     end
 
     def destroy
-        if @post.destroy
+        if @post
+            remain_image=@post.image
+            delete_image=remain_image.delete_at(params[:ind].to_i)
+            delete_image.try(:remove!)
+            @post.image=remain_image
             flash[:success]="Your image is deleted successfully"
             redirect_to posts_show_post_path
         else

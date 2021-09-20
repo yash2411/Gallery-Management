@@ -3,11 +3,19 @@
 
 <div id="carouselExampleControls" class="carousel slide mt-2" data-bs-ride="carousel">
   <div class="carousel-inner">
+      <div class="carousel-item active">
+    
+    <%= image_tag "clear.jpeg", class: "d-block w-100 img" %>
+    </div>
   <% @posts.each_with_index do |post,i| %>
+  
   <% post.image.each_with_index do |img,j| %>
-    <div class="carousel-item <%="active" if j==0 %>">
+  <% if img.present? %>
+    <div class="carousel-item ">
+    
     <%= image_tag img.url, class: "d-block w-100 img" %>
     </div>
+    <% end %>
     <% end %>
     <% end %>
   </div>
