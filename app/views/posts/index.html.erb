@@ -29,7 +29,9 @@
   </button>
 </div>
 
+<% if current_user.has_role? :admin or current_user.has_role? :manager %>
 <%= link_to 'Add Product', new_product_path, class: "btn btn-outline-success mt-2" %>
+<% end %>
 <%= link_to 'Show Products', products_path, class: "btn btn-outline-success mt-2" %>
 <hr>
 

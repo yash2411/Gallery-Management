@@ -10,11 +10,10 @@ class PagesController < ApplicationController
   def search
     @query=params[:query].strip
     if @query.blank?
-      @query="Empty Search"
-      @products=current_user.products.where("lower(name) LIKE ?", "%#{@query.downcase}%")
-
+      search="                 "
+      @products=Product.where('name LIKE :query OR description LIKE :query', query: "%#{search}%")
     else
-      @products=current_user.products.where("lower(name) LIKE ?", "%#{@query.downcase}%")
+      @products=Product.where('name LIKE :query OR description LIKE :query', query: "%#{@query}%")
       
     end
   end
