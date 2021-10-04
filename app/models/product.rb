@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-    
+    paginates_per 7
     validates :name, presence: true, length: {maximum: 30}
     validates :price, presence: true
     validates :description, presence: true, length: {maximum: 200}
